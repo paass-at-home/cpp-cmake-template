@@ -48,3 +48,9 @@ elseif(APPLE)
                 ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Frameworks)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND install_name_tool -add_rpath @loader_path/Frameworks $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME})
 endif()
+
+# copy assets directory to target
+#add_custom_command(TARGET ${PROJECT_NAME}  POST_BUILD
+#COMMAND ${CMAKE_COMMAND} -E copy_directory
+#        ${CMAKE_CURRENT_SOURCE_DIR}/src/assets
+#        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
